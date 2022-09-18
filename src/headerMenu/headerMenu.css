@@ -1,0 +1,27 @@
+#header-menus {
+  /* display: flex;
+  flex-direction: column; */
+  /* justify-content: flex-start; */
+  /* align-items: center; */
+  font-size: 20px;
+  padding-top: 50px;
+}
+#header-menu {
+  display: flex;
+  justify-content: flex-start;
+
+  width: 200px;
+  height: 60px;
+}
+
+#button-header-menu {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  /* align-items: center; */
+
+  outline: 0;
+  border: 0;
+  width: 200px;
+  cursor: pointer;
+}

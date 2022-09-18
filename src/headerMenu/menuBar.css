@@ -1,0 +1,36 @@
+#box-1 {
+  background-color: rgba(31, 31, 31, 0.545);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  animation-name: darker;
+  animation-duration: 0.2s;
+}
+
+#box-2 {
+  background-color: rgb(255, 255, 255);
+  width: 220px;
+  height: 100vh;
+  position: fixed;
+
+  animation-name: open-bar;
+  animation-duration: 0.2s;
+}
+
+@keyframes open-bar {
+  0% {
+    left: -220px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes darker {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: rgba(31, 31, 31, 0.545);
+  }
+}

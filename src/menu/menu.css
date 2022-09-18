@@ -4,9 +4,9 @@
   align-items: center;
   justify-content: space-between;
   float: left;
-  height: 605px;
+  height: 606.8px;
   text-align: center;
-  padding-top: 50px;
+  margin-top: 50px;
   position: fixed;
 }
 #menu {
@@ -21,10 +21,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 8px;
+  font-size: 2px;
   outline: 0;
   border: 0;
   width: 78px;
   height: 100px;
   background-color: transparent;
+  cursor: pointer;
 }

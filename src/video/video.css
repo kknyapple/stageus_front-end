@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(212, 210, 210);
+
   width: 280px;
   height: 150px;
 }
@@ -25,10 +25,31 @@
 #video {
   display: flex;
   align-items: center;
-
   flex-direction: column;
+  width: 280px;
+  height: 200px;
+
   margin-top: 25px;
   margin-bottom: 25px;
   margin-left: 4px;
   margin-right: 4px;
+  background-color: rgb(252, 193, 193);
+}
+
+@keyframes bigger {
+  0% {
+    left: 10px;
+  }
+  100% {
+    left: 200px;
+  }
+}
+
+@keyframes smaller {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: rgba(31, 31, 31, 0.545);
+  }
 }

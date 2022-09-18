@@ -3,30 +3,38 @@
   align-items: center;
   justify-content: center;
   position: fixed;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
+}
+#header-start-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
 }
 #menuBar {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 5px;
   width: 70px;
 }
-#menuBarButton {
+#button-menuBar {
   border-radius: 50%;
   outline: 0;
   border: 0;
+  background-color: transparent;
+  cursor: pointer;
 }
 #logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 15px;
+
   padding-right: 15px;
-  width: 120px;
+  width: 100px;
+  cursor: pointer;
 }
 #search {
-  padding-left: 50px;
+  padding-left: 65px;
   display: flex;
   width: 820px;
 }
@@ -34,15 +42,22 @@ input {
   font-size: 16px;
   width: 600px;
   height: 32px;
+  background-color: transparent;
+  border-radius: 3px;
 }
 #searchButton {
-  margin-left: -6px;
+  margin-left: -3px;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 3px;
 }
 #voiceButton {
   margin-left: 8px;
   outline: 0;
   border: 0;
   border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
 }
 #makingVideo {
   padding-left: 6px;
@@ -53,6 +68,7 @@ input {
   outline: 0;
   border: 0;
   border-radius: 50%;
+  background-color: transparent;
 }
 #notice {
   padding-left: 6px;
@@ -63,6 +79,8 @@ input {
   outline: 0;
   border: 0;
   border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
 }
 #account {
   padding-left: 6px;
@@ -73,4 +91,6 @@ input {
   height: 36px;
   outline: 0;
   border: 0;
+  background-color: transparent;
+  cursor: pointer;
 }
