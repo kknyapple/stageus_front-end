@@ -1,0 +1,79 @@
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+}
+#menuBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+}
+#menuBarButton {
+  border-radius: 50%;
+  outline: 0;
+  border: 0;
+}
+#logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 120px;
+}
+#search {
+  padding-left: 50px;
+  display: flex;
+  width: 820px;
+}
+input {
+  font-size: 16px;
+  width: 600px;
+  height: 32px;
+}
+#searchButton {
+  margin-left: -6px;
+  background-color: rgb(233, 233, 233);
+}
+#voiceButton {
+  margin-left: 8px;
+  outline: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgb(233, 233, 233);
+}
+#makingVideo {
+  padding-left: 6px;
+  padding-right: 6px;
+  width: 50px;
+}
+#makingVideoButton {
+  outline: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgb(233, 233, 233);
+}
+#notice {
+  padding-left: 6px;
+  padding-right: 6px;
+  width: 50px;
+}
+#noticeButton {
+  outline: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgb(233, 233, 233);
+}
+#account {
+  padding-left: 6px;
+  padding-right: 6px;
+  width: 50px;
+}
+#accountButton {
+  height: 36px;
+  outline: 0;
+  border: 0;
+  background-color: rgb(233, 233, 233);
+}

@@ -1,0 +1,46 @@
+#videos {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  flex-wrap: wrap;
+  padding-top: 80px;
+  padding-left: 67.984px;
+}
+#video1 {
+  background-color: aqua;
+  margin: 5px;
+  width: 350px;
+  height: 200px;
+}
+#video2 {
+  background-color: beige;
+  margin: 5px;
+  width: 350px;
+  height: 200px;
+}
+#video3 {
+  background-color: blueviolet;
+  margin: 5px;
+  width: 350px;
+  height: 200px;
+}
+#video4 {
+  background-color: brown;
+  margin: 5px;
+  margin: 5px;
+  width: 350px;
+  height: 200px;
+}
+#video5 {
+  background-color: blue;
+  margin: 5px;
+  width: 350px;
+  height: 200px;
+}
+#video6 {
+  background-color: chartreuse;
+  margin: 5px;
+  width: 350px;
+  height: 200px;
+}
