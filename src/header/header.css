@@ -3,11 +3,13 @@
   align-items: center;
   justify-content: center;
   position: fixed;
+  background-color: rgb(255, 255, 255);
 }
 #menuBar {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left: 5px;
   width: 70px;
 }
 #menuBarButton {
@@ -35,14 +37,12 @@ input {
 }
 #searchButton {
   margin-left: -6px;
-  background-color: rgb(233, 233, 233);
 }
 #voiceButton {
   margin-left: 8px;
   outline: 0;
   border: 0;
   border-radius: 50%;
-  background-color: rgb(233, 233, 233);
 }
 #makingVideo {
   padding-left: 6px;
@@ -53,7 +53,6 @@ input {
   outline: 0;
   border: 0;
   border-radius: 50%;
-  background-color: rgb(233, 233, 233);
 }
 #notice {
   padding-left: 6px;
@@ -64,7 +63,6 @@ input {
   outline: 0;
   border: 0;
   border-radius: 50%;
-  background-color: rgb(233, 233, 233);
 }
 #account {
   padding-left: 6px;
@@ -75,5 +73,4 @@ input {
   height: 36px;
   outline: 0;
   border: 0;
-  background-color: rgb(233, 233, 233);
 }

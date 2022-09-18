@@ -1,68 +1,30 @@
-#menu {
+#menus {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   float: left;
-  height: 597px;
+  height: 605px;
   text-align: center;
-  font-size: 8px;
-  padding-top: 42px;
+  padding-top: 50px;
   position: fixed;
 }
-#menu1 {
+#menu {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 74.625px;
 }
-#menu2 {
+#button-menu {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 74.625px;
-}
-#menu3 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 74.625px;
-}
-#menu4 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 74.625px;
-}
-#menu5 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 74.625px;
-}
-#menu6 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 74.625px;
-}
-#menu7 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 74.625px;
-}
-#menu8 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 74.625px;
+  font-size: 8px;
+  outline: 0;
+  border: 0;
+  width: 78px;
+  height: 100px;
+  background-color: transparent;
 }
