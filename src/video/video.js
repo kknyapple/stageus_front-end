@@ -26,8 +26,6 @@ const createVideo = function (img, id) {
   // thumbnailImg.style.width = `${thumbnail.style.width}`;
   // thumbnailImg.style.height = `${thumbnail.style.height}`;
 
-  videoId.style.position = "relative";
-
   videoHover(id);
 };
 

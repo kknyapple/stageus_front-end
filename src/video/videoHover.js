@@ -4,7 +4,7 @@ const videoHover = function (id) {
     video.style.transform = "scale(1.1)";
     video.style.top = "-10px";
     video.style.transition = "0.5s";
-    video.style.zIndex = "2";
+    video.style.zIndex = "1";
   });
   video.addEventListener("mouseleave", () => {
     video.style.transform = "scale(1)";
