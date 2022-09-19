@@ -1,4 +1,6 @@
-const createHeaderMenu = function (svg, name, id) {
+import hoveringHeaderMenu from "./headerMenuHover.js";
+
+const createHeaderMenu = function (svg, name, id, group) {
   const headerMenus = document.getElementById("header-menus");
   const headerMenuId = document.createElement("div");
   const headerMenu = document.createElement("div");
@@ -9,6 +11,7 @@ const createHeaderMenu = function (svg, name, id) {
   headerMenuId.setAttribute("id", `header-menu${id}`);
   headerMenu.setAttribute("id", "header-menu");
   headerMenuButton.setAttribute("id", "button-header-menu");
+  headerMenuSvg.setAttribute("id", "svg-header-menu");
 
   headerMenuSvg.innerHTML = `${svg}`;
   headerMenuName.innerHTML = `${name}`;
@@ -18,6 +21,8 @@ const createHeaderMenu = function (svg, name, id) {
   headerMenu.appendChild(headerMenuButton);
   headerMenuButton.appendChild(headerMenuSvg);
   headerMenuButton.appendChild(headerMenuName);
+
+  hoveringHeaderMenu(id);
 };
 
 export default createHeaderMenu;

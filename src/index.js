@@ -1,17 +1,9 @@
 import createVideo from "./video/video.js";
 import createMenu from "./menu/menu.js";
 import openMenuBar from "./headerMenu/menuBar.js";
-import hoveringMenu from "./menu/menuHover.js";
 import createHeaderMenu from "./headerMenu/headerMenu.js";
 
 openMenuBar();
-
-//hoveringMenu();
-// let menuBar = document.getElementById("header");
-// menuBar.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   console.log("click");
-// });
 
 const svg1 = `<svg
 viewBox="0 0 24 24"
@@ -191,17 +183,8 @@ createMenu(svg3, "Shorts", 2);
 createMenu(svg4, "구독", 3);
 createMenu(svg5, "Originals", 4);
 createMenu(svg6, "YouTube Music", 5);
-createMenu(svg7, "보관함", 6);
+createMenu(svg7, "보관함", 6, 2);
 createMenu(svg8, "오프라인 저장", 7);
-
-hoveringMenu(0);
-hoveringMenu(1);
-hoveringMenu(2);
-hoveringMenu(3);
-hoveringMenu(4);
-hoveringMenu(5);
-hoveringMenu(6);
-hoveringMenu(7);
 
 createHeaderMenu(svg1, "홈", 0);
 createHeaderMenu(svg2, "탐색", 1);
@@ -211,15 +194,6 @@ createHeaderMenu(svg5, "Originals", 4);
 createHeaderMenu(svg6, "YouTube Music", 5);
 createHeaderMenu(svg7, "보관함", 6);
 createHeaderMenu(svg8, "오프라인 저장", 7);
-
-// createHeaderMenu(svg1, "홈");
-// createHeaderMenu(svg2, "탐색");
-// createHeaderMenu(svg3, "Shorts");
-// createHeaderMenu(svg4, "구독");
-// createHeaderMenu(svg5, "Originals");
-// createHeaderMenu(svg6, "YouTube Music");
-// createHeaderMenu(svg7, "보관함");
-// createHeaderMenu(svg8, "오프라인 저장");
 
 const images = [
   "img0",

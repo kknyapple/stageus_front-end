@@ -1,3 +1,5 @@
+import hoveringMenu from "./menuHover.js";
+
 const createMenu = function (svg, name, id) {
   const menus = document.getElementById("menus");
   const menuId = document.createElement("div");
@@ -18,6 +20,8 @@ const createMenu = function (svg, name, id) {
   menu.appendChild(menuButton);
   menuButton.appendChild(menuSvg);
   menuButton.appendChild(menuName);
+
+  hoveringMenu(id);
 };
 
 export default createMenu;
