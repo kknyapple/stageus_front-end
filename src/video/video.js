@@ -1,3 +1,5 @@
+import videoHover from "./videoHover.js";
+
 const createVideo = function (img, id) {
   const videos = document.getElementById("videos");
   const videoId = document.createElement("div");
@@ -12,17 +14,21 @@ const createVideo = function (img, id) {
   thumbnail.setAttribute("id", "thumbnail");
   videoContent.setAttribute("id", "video-content");
 
-  thumbnailImg.src = `../images/${img}.jpg`;
-  videoContentPar.innerHTML = "동영상";
-  thumbnailImg.style.width = "250px";
-  thumbnailImg.style.height = "150px";
-
   videos.appendChild(videoId);
   videoId.appendChild(video);
   video.appendChild(thumbnail);
   thumbnail.appendChild(thumbnailImg);
   video.appendChild(videoContent);
   videoContent.appendChild(videoContentPar);
+
+  thumbnailImg.src = `../images/${img}.jpg`;
+  videoContentPar.innerHTML = "동영상";
+  // thumbnailImg.style.width = `${thumbnail.style.width}`;
+  // thumbnailImg.style.height = `${thumbnail.style.height}`;
+
+  videoId.style.position = "relative";
+
+  videoHover(id);
 };
 
 export default createVideo;

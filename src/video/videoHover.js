@@ -1,10 +1,16 @@
-const videoHover = function () {
-  const video = document.getElementById("videos");
+const videoHover = function (id) {
+  const video = document.getElementById(`video${id}`);
   video.addEventListener("mouseover", () => {
-    //document.getElementById("video1").style.height = "110%";
+    video.style.transform = "scale(1.1)";
+    video.style.top = "-10px";
+    video.style.transition = "0.5s";
+    video.style.zIndex = "2";
   });
   video.addEventListener("mouseleave", () => {
-    //document.getElementById("video1").style.height = "200px";
+    video.style.transform = "scale(1)";
+    video.style.top = "0px";
+    video.style.transition = "0.2s";
+    video.style.zIndex = "0";
   });
 };
 
