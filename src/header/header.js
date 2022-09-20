@@ -139,6 +139,7 @@ const addHeader = function () {
     </svg>
   </button>
 </div>
+<div id="header-end-container">
 <div id="makingVideo">
   <button id="makingVideoButton">
     <svg
@@ -192,12 +193,12 @@ const addHeader = function () {
       draggable="false"
       class="style-scope yt-img-shadow"
       height="32"
-      width="22"
+      width="32"
       src="https://yt3.ggpht.com/yti/AJo0G0mVxKqYGsPhVMgrMEvuRqrIhBhBGR_RzdTptQ=s88-c-k-c0x00ffffff-no-rj-mo"
     />
   </button>
 </div>
-    
+</div>  
     `;
 };
 

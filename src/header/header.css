@@ -1,10 +1,12 @@
 #header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: fixed;
+  justify-content: space-between;
+  position: sticky;
+  top: 0px;
   background-color: white;
   z-index: 2;
+  height: 60px;
 }
 #header-start-container {
   display: flex;
@@ -35,32 +37,51 @@
   cursor: pointer;
 }
 #search {
-  padding-left: 65px;
+  margin-left: 40px;
   display: flex;
-  width: 820px;
+  width: 600px;
 }
 #search > input {
   font-size: 16px;
-  width: 600px;
   height: 32px;
   border-radius: 3px;
+  flex-grow: 1;
+
+  height: 35px;
+  border: 1px solid rgb(172, 170, 170);
 }
 #searchButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
   margin-left: -3px;
   cursor: pointer;
   border-radius: 3px;
+
+  background-color: rgb(240, 240, 240);
+  border: 1px solid rgb(172, 170, 170);
 }
 #voiceButton {
-  margin-left: 8px;
   outline: 0;
   border: 0;
   border-radius: 50%;
-  background-color: transparent;
   cursor: pointer;
+  margin-left: 9px;
+}
+#header-end-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
 }
 #makingVideo {
-  padding-left: 6px;
-  padding-right: 6px;
+  /* padding-left: 6px;
+  padding-right: 6px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 50px;
 }
 #makingVideoButton {
@@ -70,8 +91,12 @@
   background-color: transparent;
 }
 #notice {
-  padding-left: 6px;
-  padding-right: 6px;
+  /* padding-left: 6px;
+  padding-right: 6px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 50px;
 }
 #noticeButton {
@@ -82,14 +107,19 @@
   cursor: pointer;
 }
 #account {
-  padding-left: 6px;
-  padding-right: 6px;
+  /* padding-left: 6px;
+  padding-right: 6px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 50px;
 }
 #accountButton {
-  height: 36px;
+  /* height: 30px; */
   outline: 0;
   border: 0;
   background-color: transparent;
   cursor: pointer;
+  padding-left: 12px;
 }
