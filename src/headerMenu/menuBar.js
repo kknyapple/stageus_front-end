@@ -25,5 +25,3 @@ const openMenuBar = function () {
     menuBarList.style.display = "";
   });
 };
-
-export default openMenuBar;

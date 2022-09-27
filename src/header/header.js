@@ -201,5 +201,3 @@ const addHeader = function () {
 </div>  
     `;
 };
-
-export default addHeader;

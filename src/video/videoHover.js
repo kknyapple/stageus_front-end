@@ -13,5 +13,3 @@ const videoHover = function (id) {
     video.style.zIndex = "0";
   });
 };
-
-export default videoHover;

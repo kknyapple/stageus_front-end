@@ -1,13 +1,8 @@
-import addHeader from "./header/header.js";
-import createVideo from "./video/video.js";
-import createMenu from "./menu/menu.js";
-import openMenuBar from "./headerMenu/menuBar.js";
-import createHeaderMenu from "./headerMenu/headerMenu.js";
-import svg from "./svg.js";
-
 addHeader();
-
+addHeaderMenu();
 openMenuBar();
+
+document.getElementById("menu-bar-list").style.display = "none";
 
 const menuNames = [
   "홈",
@@ -21,18 +16,30 @@ const menuNames = [
 ];
 const images = [
   "img0",
-  "img2",
-  "img3",
-  "img4",
-  "img5",
   "img0",
-  "img3",
-  "img4",
-  "img5",
-  "img1",
-  "img2",
-  "img3",
-  "img4",
+  "img0",
+  "img0",
+  "img0",
+  "img0",
+  "img0",
+  "img0",
+  "img0",
+  "img0",
+  "img0",
+];
+
+const contents = [
+  "content0",
+  "content0",
+  "content0",
+  "content0",
+  "content0",
+  "content0",
+  "content0",
+  "content0",
+  "content0",
+  "content0",
+  "content0",
 ];
 
 menuNames.forEach((name, index) => {
@@ -43,4 +50,4 @@ menuNames.forEach((name, index) => {
   createHeaderMenu(svg[index], name, index);
 });
 
-images.forEach((img, index) => createVideo(img, index));
+images.forEach((img, index) => createVideo(img, contents[index], index));

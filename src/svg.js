@@ -159,5 +159,3 @@ style="
 </svg>`;
 
 const svg = [svg1, svg2, svg3, svg4, svg5, svg6, svg7, svg8];
-
-export default svg;

@@ -7,5 +7,3 @@ const hoveringMenu = function (id) {
     menu.style.backgroundColor = "transparent";
   });
 };
-
-export default hoveringMenu;
