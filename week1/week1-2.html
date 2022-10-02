@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .tmpInput {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <input id="nameValue" type="text" />
+    <input id="createLabelBtn" type="button" value="추가" />
+    <div id="root"></div> -->
+    <input
+      class="tmpInput"
+      type="button"
+      value="클릭"
+      onclick="tmpClickEvent()"
+    />
+    <script>
+      // //EventDelegation2
+      // document
+      //   .getElementById("createLabelBtn")
+      //   .addEventListener("click", () => {
+      //     const tmpDiv = document.createElement("div");
+      //     tmpDiv.innerHTML = document.getElementById("nameValue").value;
+
+      //     //event를 2개나씀, root에 등록하면 부모->자식으로 감 성능/유지보수면에서 좋음
+      //     //   tmpDiv.addEventListener("click", (event) => {
+      //     //     clickEvent(event.target.innerHTML);
+      //     //   });
+
+      //     document.getElementById("root").appendChild(tmpDiv);
+      //   });
+
+      // const clickEvent = (data) => {
+      //   console.log(data);
+      // };
+
+      // document.getElementById("root").addEventListener("click", (event) => {
+      //   const targetTag = event.target;
+      //   clickEvent(targetTag.innerHTML);
+      // });
+
+      //Closure
+      //함수형 프로그램이 언어에 원래부터 존재하던 기법
+      //함수형 프로그래밍의 원칙 중, side effect 개념
+      //전역변수를 어떻게 side effect 없이 사용을 할까 -> closure
+      //버튼 누를때 정도만 사용
+
+      //가장 기본적인 Closure 형태
+      const closure = () => {
+        let value = 1;
+        const func = () => {
+          value += 1;
+          console.log(value);
+        };
+        return func;
+      };
+
+      const increase = closure();
+
+      increase(); //만든 closure 함수 사용 //지역변수 value가 안사라짐 -> 이유찾아보기
+      increase();
+      increase();
+      increase();
+
+      console.log(value); //error //전역변수가 바뀌는 것을 막아줌
+    </script>
+  </body>
+</html>

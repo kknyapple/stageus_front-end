@@ -1,0 +1,38 @@
+#menus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* float: left; */
+  height: 597px;
+  text-align: center;
+  /* margin-top: 50px; */
+  position: sticky;
+  top: 60px;
+}
+#menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 74.625px;
+}
+#button-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2px;
+  outline: 0;
+  border: 0;
+  width: 78px;
+  height: 100px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 792px) {
+  #menus {
+    display: none;
+  }
+}

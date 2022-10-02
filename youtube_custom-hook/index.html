@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const HeaderComponent = () => {
+        return (
+          <header id="header">
+            <div id="header-start-container">
+              <div
+                id="menuBar"
+                onClick={() => {
+                  // console.log("clicked");
+                  // const menuBarList = document.getElementById("menu-bar-list");
+                  // document.getElementById("header").style.backgroundColor =
+                  //   "transparent";
+                  // document.getElementById("box-1").style.animsationName =
+                  //   "darker";
+                  // document.getElementById("box-2").style.animationName =
+                  //   "open-bar";
+                  // menuBarList.style.display = "";
+                }}
+              >
+                <button id="button-menuBar">
+                  <img src="./images/menu.jpg" />
+                </button>
+              </div>
+              <div id="logo">
+                <img src="./images/logo.jpg" />
+              </div>
+            </div>
+            <div id="search">
+              <input type="text" placeholder="검색" />
+              <button id="searchButton">
+                <img src="./images/search.jpg" />
+              </button>
+              <button id="voiceButton">
+                <img src="./images/voice.jpg" />
+              </button>
+            </div>
+            <div id="header-end-container">
+              <div id="makingVideo">
+                <button id="makingVideoButton">
+                  <img src="./images/video.jpg" />
+                </button>
+              </div>
+              <div id="notice">
+                <button id="noticeButton">
+                  <img src="./images/notice.jpg" />
+                </button>
+              </div>
+              <div id="account">
+                <button id="accountButton">
+                  <img
+                    height="30px"
+                    width="30px"
+                    src="https://yt3.ggpht.com/yti/AJo0G0mVxKqYGsPhVMgrMEvuRqrIhBhBGR_RzdTptQ=s88-c-k-c0x00ffffff-no-rj-mo"
+                  />
+                </button>
+              </div>
+            </div>
+          </header>
+        );
+      };
+
+      const NavComponent = (props) => {
+        const name = props.name;
+        const id = props.id;
+        const img = props.img;
+
+        const navOnMouseOver = (e) => {
+          if (e.target.className == "menu-class") {
+            e.target.style.backgroundColor = "lightgray";
+          }
+        };
+
+        const navOnMouseOut = (e) => {
+          if (e.target.className == "menu-class") {
+            e.target.style.backgroundColor = "transparent";
+          }
+        };
+
+        React.useEffect(() => {
+          document
+            .getElementById("menus")
+            .addEventListener("mouseover", navOnMouseOver);
+
+          document
+            .getElementById("menus")
+            .addEventListener("mouseout", navOnMouseOut);
+        });
+
+        return (
+          <nav id="menus">
+            {id.map((a, index) => {
+              return (
+                <div key={index} id={`menu${id[index]}`}>
+                  <div id="menu">
+                    <div className="menu-class" id="button-menu">
+                      <img src={`./images/${img[index]}.jpg`} />
+                      {name[index]}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </nav>
+        );
+      };
+      const VideoComponent = (props) => {
+        const img = props.img;
+        const content = props.content;
+        const id = props.id;
+
+        const [videoScale, setVideoScale] = React.useState(true);
+
+        const videoOnClickHandler = (e) => {
+          console.log("video click");
+          setVideoScale(!videoScale);
+          console.log(e.target);
+          if (e.target.className == "video-class") {
+            // console.log(e.target);
+            if (videoScale == true) {
+              // console.log("true");
+              e.target.style.transform = "scale(1.1)";
+              e.target.style.top = "-10px";
+              e.target.style.transition = "0.5s";
+              e.target.style.zIndex = "1";
+            } else if (videoScale == false) {
+              // console.log("false");
+              e.target.style.transform = "scale(1)";
+              e.target.style.top = "0px";
+              e.target.style.transition = "0.2s";
+              e.target.style.zIndex = "0";
+            }
+          }
+        };
+
+        React.useEffect(() => {
+          document
+            .getElementById("videos")
+            .addEventListener("click", videoOnClickHandler);
+        }, [videoScale]);
+
+        return (
+          <div id="videos">
+            {id.map((a, index) => {
+              return (
+                <div className="video-class" key={index} id={`video${index}`}>
+                  <div id="video">
+                    <div id="thumbnail">
+                      <img src={`./images/${img[index]}.jpg`} />
+                    </div>
+                    <div id="video-content">
+                      <img src={`./images/${content[index]}.jpg`} />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        );
+      };
+      const ContainerComponent = (props) => {
+        const menuNames = props.menuNames;
+        const menuId = props.menuId;
+        const menuImg = props.menuImg;
+        const videoImg = props.videoImg;
+        const videoContent = props.videoContent;
+        const videoId = props.videoId;
+
+        return (
+          <main id="container">
+            <NavComponent name={menuNames} id={menuId} img={menuImg} />
+            <VideoComponent
+              img={videoImg}
+              content={videoContent}
+              id={videoId}
+            />
+          </main>
+        );
+      };
+
+      const WhiteBoxComponent = (props) => {
+        const name = props.name;
+        const id = props.id;
+
+        const whiteBoxOnMouseOver = (e) => {
+          if (e.target.className == "header-menu-class") {
+            e.target.style.backgroundColor = "lightgray";
+          }
+        };
+
+        const whiteBoxOnMouseOut = (e) => {
+          if (e.target.className == "header-menu-class") {
+            e.target.style.backgroundColor = "transparent";
+          }
+        };
+
+        React.useEffect(() => {
+          document
+            .getElementById("header-menus")
+            .addEventListener("mouseover", whiteBoxOnMouseOver);
+
+          document
+            .getElementById("header-menus")
+            .addEventListener("mouseout", whiteBoxOnMouseOut);
+        });
+
+        return (
+          <div id="box-2">
+            <div>
+              <div id="header-menu-start-container">
+                <div id="header-menu-bar">
+                  <button id="button-header-menu-bar" onClick={() => {}}>
+                    <img src={`./images/menu.jpg`} />
+                  </button>
+                </div>
+                <div id="header-menu-logo">
+                  <img src={`./images/logo.jpg`} />
+                </div>
+              </div>
+              <div id="header-menus">
+                {id.map((a, index) => {
+                  return (
+                    <div
+                      className="header-menu-class"
+                      key={index}
+                      id={`header-menu${id[index]}`}
+                    >
+                      <div id="header-menu">
+                        <div id="button-header-menu">{name[index]}</div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        );
+      };
+      const GrayBoxComponent = () => {
+        return <div id="box-1"></div>;
+      };
+      const SideNavComponent = (props) => {
+        const [nav, setNav] = React.useState(false);
+        const menuNames = props.menuNames;
+        const menuId = props.menuId;
+
+        return (
+          <div id="menu-bar-list">
+            <button
+              onClick={() => {
+                setNav(!nav);
+              }}
+            >
+              메뉴변경
+            </button>
+            {nav == true ? <GrayBoxComponent /> : null}
+            {nav == true ? (
+              <WhiteBoxComponent name={menuNames} id={menuId} />
+            ) : null}
+          </div>
+        );
+      };
+
+      const app = () => {
+        const menuNames = [
+          "홈",
+          "탐색",
+          "Shorts",
+          "구독",
+          "Originals",
+          "YouTube Music",
+          "보관함",
+          "오프라인 저장",
+        ];
+        const menuId = ["0", "1", "2", "3", "4", "5", "6", "7"];
+        const menuImg = [
+          "menu0",
+          "menu1",
+          "menu2",
+          "menu3",
+          "menu4",
+          "menu5",
+          "menu6",
+          "menu7",
+        ];
+
+        const videoId = [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+        ];
+        const videoImg = [
+          "img0",
+          "img0",
+          "img0",
+          "img0",
+          "img0",
+          "img0",
+          "img0",
+          "img0",
+          "img0",
+          "img0",
+          "img0",
+          "img0",
+          "img0",
+        ];
+        const videoContent = [
+          "content0",
+          "content0",
+          "content0",
+          "content0",
+          "content0",
+          "content0",
+          "content0",
+          "content0",
+          "content0",
+          "content0",
+          "content0",
+          "content0",
+          "content0",
+        ];
+
+        ReactDOM.render(
+          <React.Fragment>
+            <SideNavComponent menuNames={menuNames} menuId={menuId} />
+            <HeaderComponent />
+            <ContainerComponent
+              menuNames={menuNames}
+              menuId={menuId}
+              menuImg={menuImg}
+              videoImg={videoImg}
+              videoContent={videoContent}
+              videoId={videoId}
+            />
+          </React.Fragment>,
+          document.getElementById("root")
+        );
+      };
+
+      window.onload = () => {
+        app();
+      };
+    </script>
+  </body>
+</html>

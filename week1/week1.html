@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #first {
+        width: 300px;
+        height: 300px;
+        background-color: red;
+      }
+      #second {
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+      }
+      #third {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="first">
+      <div id="second">
+        <div id="third"></div>
+      </div>
+    </div>
+
+    <script>
+      //    //onclick시, event bubbling으로 자식->부모로 이벤트를 강제함
+      //   const firstEvent = () => {
+      //     console.log("first");
+      //   };
+      //   const secondEvent = () => {
+      //     console.log("second");
+      //   };
+      //   const thirdEvent = () => {
+      //     console.log("third");
+      //   };
+
+      // Event Delegation1
+      //이벤트 위임
+      //이벤트 처리를 단순화 해서, 코드를 간소화 시키는 기법
+      //유지보수성이 좋아짐, 성능이 향상
+      //각 tag에 이벤트를 등록하는 방식에서, 부모 tag에 이벤트를 등록하는 것
+
+      //onclick안하고 addEventListener 쓰는 이유??
+      document.getElementById("first").addEventListener("click", (event) => {
+        const targetTag = event.target; //이벤트가 발생된 tag를 가져옴
+        switch (targetTag.id) {
+          case "first":
+            console.log("first");
+            break;
+          case "second":
+            console.log("second");
+            break;
+          case "third":
+            console.log("third");
+            break;
+        }
+      });
+
+      //Hoisting -> 코드를 헤침, 유지보수하기 어려움
+      //   //Hoisting 전
+      //   var num1 = 10;
+      //   num1 += 10;
+      //   console.log(num1);
+      //   func(num1, num2);
+      //   console.log(num2);
+      //   var num2 = 20;
+      //   function func(n1, n2) {
+      //     console.log(n1 + n2);
+      //   }
+
+      //   //Hoisting 후
+      //   var num1;
+      //   var num2;
+      //   function func(n1, n2) {
+      //     console.log(n1 + n2);
+      //   }
+      //   num1 = 10;
+      //   num1 += 10;
+      //   console.log(num1);
+      //   func(num1, num2);
+      //   console.log(num2);
+      //   num2 = 20;
+
+      //   var sum = 1000; //이 사람이 쓴 게시글 수
+      //   var points = [10, 50, 99, 28, 95];
+      //   var sum = 0;
+      //   for (var index = 0; index < points.length; index++) {
+      //     sum += points[index];
+      //   }
+      //   if (sum < 1000) {
+      //     console.log("일반회원");
+      //   } else if (sume >= 1000) {
+      //     console.log("vip회원");
+      //   }
+
+      //var, let, const
+      // let a =10;
+      // console.log(a)
+      // console.log(b)
+      // let b = 20
+
+      // let a
+      // let b
+      // a=10
+      // console.log(a)
+      // console.log(b)
+      // b=20
+
+      //함수 표현식
+      //   //1.함수 선언식
+      //   func();
+      //   function func() {
+      //     console.log("hello");
+      //   }
+      //   //2.함수 표현식
+      //   const func = function () {
+      //     console.log("hello");
+      //   };
+      //   //hoisting 후
+      //   const func;
+      //   func=function(){
+      //     console.log("hello")
+      //   }
+
+      //   //3.함수 람다식
+      //   const func=()=>{
+      //     console.log("hello")
+      //   }
+
+      //   //4.함수 람다식의 축약형
+      //   const func= num => num * num
+
+      //Default argument
+      //   const area = (num1, num2 = 3.14) => {
+      //     if (num2 === 3.14) {
+      //       return num1 * num1 * num2;
+      //     } else {
+      //       return num1 * num2;
+      //     }
+      //   };
+      //   mul(5, 2);
+      //   mul(5);
+
+      //Template Literal
+      //   const power = (num) => {
+      //     return num * num;
+      //   };
+      //   const value = 4;
+      //   console.log(`숫자: ${value}`);
+      //   console.log(`제곱: ${power(value)}`);
+
+      //   const name = "스테이지어스";
+      //   console.log("이름: " + name + " 입니다.");
+      //   console.log(`이름: ${name} 입니다.`);
+
+      //Destructuring
+      //   const area = (data) => {
+      //     //함수로 들어온 매개변수는 재할당을 해서 사용해야함
+      //     // const x = data[1];
+      //     // const y = data[2];
+      //     // const areaValue = data[0];
+
+      //     //순서는 상관 x, 이름은 같아야 함
+      //     const [areaValue, x, y] = data;
+      //     const { areaValue2, x2, y2 } = data;
+
+      //     console.log(`x값: ${x}`);
+      //     console.log(`y값: ${y}`);
+      //     console.log(`넓이: ${areaValue}`);
+
+      //     console.log(`${x} x ${y} = ${areaValue}`);
+      //   };
+      //   const list = [5, 2, 10];
+      //   const obj = {
+      //     x: 5,
+      //     y: 2,
+      //     areaValue: 10,
+      //   };
+      //   area(list);
+
+      //Array Helper
+      //for문의 사용을 대폭 줄이자
+
+      //1.forEach
+      //   const arr = [1, 2, 3, 4, 5];
+      //   arr.forEach((value) => console.log(value));
+
+      //   let total = 0;
+      //   arr.forEach((value) => (total += value));
+      //   console.log(total);
+
+      //   //2.map //다른 리스트에 저장 목적, return으로 끝나야함
+      //   const newArr = arr.map((value) => value * value);
+      //   console.log(newArr);
+
+      //   //3.filter //다른 리스트에 저장 목적, 조건에 참인 것만 return
+      //   const newArr2 = arr.filter((value) => value % 2 == 0);
+      //   console.log(newArr2);
+
+      //   //4.reduce
+      //   const newValue = arr.reduce((value, curr) => value + curr, 0);
+      //   console.log(newValue);
+
+      //   const newValue2 = arr.reduce(
+      //     (value, curr) => Math.min(value, curr),
+      //     arr[0]
+      //   );
+
+      //spread operator, rest parameter
+    </script>
+  </body>
+</html>

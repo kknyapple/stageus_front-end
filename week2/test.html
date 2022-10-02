@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- babel: 1. es6를 es5로 바꿔줌, 모든 브라우저 사용 위해 2.자바스클립트 인식안되는 언어를 자바스크립트로 바꿔줌 -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const DivComponent = (props) => {
+        //common js로 개발 했을 때
+        //   const tmpDiv = document.createElement("div");
+        //   tmpDiv.type = "button";
+        //   tmpDiv.value = "스테이지어스";
+        //   return tmpDiv
+
+        //react를 사용했을 때
+        //   const tmpDiv = React.createElement("input", {
+        //     type: "button",
+        //     value: "스테이지어스",
+        //   });
+        //   return tmpDiv;
+
+        //react+jsx를 사용했을 때
+
+        const nameValue = props.nameValue;
+        return <input type="button" value={nameValue} />;
+      };
+
+      const ProfileComponent = (props) => {
+        const nameValue = props.nameValue; //const {nameValue} = props
+
+        return (
+          <div>
+            <p>{nameValue}</p>
+            <DivComponent nameValue={nameValue} />
+          </div>
+        );
+      };
+
+      const app = () => {
+        //   for (let index = 0; index < 4; index++) {
+        //     document.getElementById("root").appendChild(divComponent());
+        //   }
+
+        //   document.getElementById("root").appendChild(divComponent());
+
+        //react를 사용했을 때
+        //ReactDOM.render(divComponent(), document.getElementById("root")); //html에 쓴 코드 출력 x //물리적 dom x, 가상돔으로만
+
+        //react+jsx를 사용했을 때
+
+        const data = ["성민", "나연", "예진"];
+
+        ReactDOM.render(
+          // React.Fragment -> 태그 없음
+          <React.Fragment>
+            <ProfileComponent nameValue={data[0]} />
+            <ProfileComponent nameValue={data[1]} />
+            <ProfileComponent nameValue={data[2]} />
+          </React.Fragment>,
+          document.getElementById("root")
+        );
+      };
+
+      window.onload = () => {
+        app();
+      };
+    </script>
+    <!-- JSX(JS+XML) //자바스크립트에서 html로 작성해주는 언어 -->
+  </body>
+</html>

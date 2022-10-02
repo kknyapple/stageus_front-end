@@ -1,0 +1,26 @@
+#header-menus {
+  font-size: 22px;
+  padding-top: 10px;
+}
+
+#header-menu {
+  width: 200px;
+  height: 40px;
+  padding-left: 14px;
+}
+
+#button-header-menu {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+
+  outline: 0;
+  border: 0;
+  width: 200px;
+  height: 40px;
+  cursor: pointer;
+}
+
+#svg-header-menu {
+  padding-right: 20px;
+}

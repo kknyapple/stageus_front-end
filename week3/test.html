@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      //state에 대한 모든 것을 관리함
+      //다른 Component에서 이 state에 대한 예외처리 등을 하지 않도록 하는게 목적
+      const useInputLengthCheck = () => {
+        //아예 이 Custom Hook에 state에 관련된 모든 역할을 위임하겠음
+        const [value, setValue] = React.useState(0);
+
+        const inputException = (data) => {
+          if (data < 100) {
+            setValue(data);
+          }
+        };
+
+        return [value, inputException];
+      };
+
+      const InputBoxComponent = (props) => {
+        const { setNum1, setNum2 } = props;
+
+        const changeEvent = (e) => {
+          if (e.target.id == "first") {
+            //num1 = parseInt(e.target.value);
+            setNum1(parseInt(e.target.value));
+          } else if (e.target.id == "second") {
+            //num2 = parseInt(e.target.value);
+            setNum2(parseInt(e.target.value));
+          }
+        };
+
+        React.useEffect(() => {
+          document
+            .getElementById("input_box")
+            .addEventListener("change", (e) => {
+              changeEvent(e);
+            });
+        });
+
+        return (
+          <div
+            id="input_box"
+            //useEffect로 대신 사용해봄
+            // onChange={(e) => {
+            //   //익명함수로 로직 쓰기 가능
+            //   //event delegation
+            //   changeEvent(e);
+            // }}
+          >
+            <input id="first" type="text" />
+            <input id="second" type="text" />
+          </div>
+        );
+      };
+
+      const ResultBoxComponent = (props) => {
+        const { num1, num2 } = props; //Destructuring으로 받아온 props를 분할 저장
+        return (
+          <div>
+            <p id="add_value">{num1 + num2}</p>
+            <p id="sub_value">{num1 - num2}</p>
+            <p id="mul_value">{num1 * num2}</p>
+            <p id="div_value">{num1 / num2}</p>
+          </div>
+        );
+      };
+
+      const CalculatorComponent = () => {
+        //일반변수(지역변수)
+        // let num1 = 0;
+        // let num2 = 0;
+
+        //state로 선언
+        //state는 state이기 이전에 변수이기 때문에, props로 전달이 가능 하다
+        // const [num1, setNum1] = React.useState(0);
+        // const [num2, setNum2] = React.useState(0);
+
+        //Custom Hook 사용
+        const [num1, setNum1] = useInputLengthCheck();
+        const [num2, setNum2] = useInputLengthCheck();
+
+        //이처럼 아래 4줄의 코드를 일일잏 작성해 주어야 함
+        //   document.getElementById("add_value").innerHTML = num1 + num2;
+        //   document.getElementById("sub_value").innerHTML = num1 - num2;
+        //   document.getElementById("mul_value").innerHTML = num1 * num2;
+        //   document.getElementById("div_value").innerHTML = num1 / num2;
+
+        //[]을 넣을때(초기값 0,0에서 안바뀜)와 안 넣을 때 차이, [num2]면 num2가 바뀔때만 num1도 바뀜
+        React.useEffect(() => {
+          document.getElementById("default_num1").innerHTML = num1;
+          document.getElementById("default_num2").innerHTML = num2;
+          console.log("실행됨");
+
+          return () => {
+            //사라질때 return 내용 //통신, 채팅서버 연결하고 끊을 때 많이 사용
+            console.log("사라짐");
+          };
+        });
+
+        return (
+          <React.Fragment>
+            <h1>초기값</h1>
+            <p id="default_num1"></p>
+            <p id="default_num2"></p>
+            <InputBoxComponent setNum1={setNum1} setNum2={setNum2} />
+            <ResultBoxComponent num1={num1} num2={num2} />
+          </React.Fragment>
+        );
+      };
+
+      const App = () => {
+        ReactDOM.render(
+          <CalculatorComponent />,
+          document.getElementById("root")
+        );
+      };
+      window.onload = () => {
+        App();
+      };
+    </script>
+  </body>
+</html>
