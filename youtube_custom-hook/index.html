@@ -23,6 +23,73 @@
     <div id="root"></div>
 
     <script type="text/babel">
+      const HeaderStartContainer = () => {
+        return (
+          <div id="header-start-container">
+            <div
+              id="menuBar"
+              onClick={() => {
+                // console.log("clicked");
+                // const menuBarList = document.getElementById("menu-bar-list");
+                // document.getElementById("header").style.backgroundColor =
+                //   "transparent";
+                // document.getElementById("box-1").style.animsationName =
+                //   "darker";
+                // document.getElementById("box-2").style.animationName =
+                //   "open-bar";
+                // menuBarList.style.display = "";
+              }}
+            >
+              <button id="button-menuBar">
+                <img src={`./images/menu.jpg`} />
+              </button>
+            </div>
+            <div id="logo">
+              <img src={`./images/logo.jpg`} />
+            </div>
+          </div>
+        );
+      };
+      const HeaderMiddleContainer = () => {
+        return (
+          <div id="header-middle-container">
+            <div id="search">
+              <input type="text" placeholder="검색" />
+              <button id="searchButton">
+                <img src={`./images/search.jpg`} />
+              </button>
+              <button id="voiceButton">
+                <img src={`./images/voice.jpg`} />
+              </button>
+            </div>
+          </div>
+        );
+      };
+      const HeaderEndContainer = () => {
+        return (
+          <div id="header-end-container">
+            <div id="makingVideo">
+              <button id="makingVideoButton">
+                <img src={`./images/video.jpg`} />
+              </button>
+            </div>
+            <div id="notice">
+              <button id="noticeButton">
+                <img src={`./images/notice.jpg`} />
+              </button>
+            </div>
+            <div id="account">
+              <button id="accountButton">
+                <img
+                  height="30px"
+                  width="30px"
+                  src="https://yt3.ggpht.com/yti/AJo0G0mVxKqYGsPhVMgrMEvuRqrIhBhBGR_RzdTptQ=s88-c-k-c0x00ffffff-no-rj-mo"
+                />
+              </button>
+            </div>
+          </div>
+        );
+      };
       const HeaderComponent = (props) => {
         const headerImg = [
           "menu",
@@ -42,59 +109,9 @@
 
         return (
           <header id="header">
-            <div id="header-start-container">
-              <div
-                id="menuBar"
-                onClick={() => {
-                  // console.log("clicked");
-                  // const menuBarList = document.getElementById("menu-bar-list");
-                  // document.getElementById("header").style.backgroundColor =
-                  //   "transparent";
-                  // document.getElementById("box-1").style.animsationName =
-                  //   "darker";
-                  // document.getElementById("box-2").style.animationName =
-                  //   "open-bar";
-                  // menuBarList.style.display = "";
-                }}
-              >
-                <button id="button-menuBar">
-                  <img src={`./images/${headerImg[0]}.jpg`} />
-                </button>
-              </div>
-              <div id="logo">
-                <img src={`./images/${headerImg[1]}.jpg`} />
-              </div>
-            </div>
-            <div id="search">
-              <input type="text" placeholder="검색" />
-              <button id="searchButton">
-                <img src={`./images/${headerImg[2]}.jpg`} />
-              </button>
-              <button id="voiceButton">
-                <img src={`./images/${headerImg[3]}.jpg`} />
-              </button>
-            </div>
-            <div id="header-end-container">
-              <div id="makingVideo">
-                <button id="makingVideoButton">
-                  <img src={`./images/${headerImg[4]}.jpg`} />
-                </button>
-              </div>
-              <div id="notice">
-                <button id="noticeButton">
-                  <img src={`./images/${headerImg[5]}.jpg`} />
-                </button>
-              </div>
-              <div id="account">
-                <button id="accountButton">
-                  <img
-                    height="30px"
-                    width="30px"
-                    src="https://yt3.ggpht.com/yti/AJo0G0mVxKqYGsPhVMgrMEvuRqrIhBhBGR_RzdTptQ=s88-c-k-c0x00ffffff-no-rj-mo"
-                  />
-                </button>
-              </div>
-            </div>
+            <HeaderStartContainer />
+            <HeaderMiddleContainer />
+            <HeaderEndContainer />
           </header>
         );
       };
@@ -156,7 +173,6 @@
           </nav>
         );
       };
-
       const SingleVideoComponent = (props) => {
         const id = props.id;
         const img = props.img;
@@ -216,10 +232,6 @@
             .getElementById("videos")
             .addEventListener("click", videoOnClickHandler);
         });
-
-        // React.useEffect(() => {
-        //   document.getElementById("videos");
-        // }, []);
 
         return (
           <div id="videos">
@@ -307,6 +319,20 @@
         );
       };
 
+      const WhiteBoxHeaderComponent = () => {
+        return (
+          <div id="header-menu-start-container">
+            <div id="header-menu-bar">
+              <button id="button-header-menu-bar">
+                <img src={`./images/menu.jpg`} />
+              </button>
+            </div>
+            <div id="header-menu-logo">
+              <img src={`./images/logo.jpg`} />
+            </div>
+          </div>
+        );
+      };
       const WhiteBoxSingleMenuComponent = (props) => {
         const name = props.name;
         const id = props.id;
@@ -375,19 +401,8 @@
 
         return (
           <div id="box-2">
-            <div>
-              <div id="header-menu-start-container">
-                <div id="header-menu-bar">
-                  <button id="button-header-menu-bar">
-                    <img src={`./images/menu.jpg`} />
-                  </button>
-                </div>
-                <div id="header-menu-logo">
-                  <img src={`./images/logo.jpg`} />
-                </div>
-              </div>
-              <WhiteBoxMenuComponent id={id} name={name} />
-            </div>
+            <WhiteBoxHeaderComponent />
+            <WhiteBoxMenuComponent id={id} name={name} />
           </div>
         );
       };
@@ -426,6 +441,7 @@
               <WhiteBoxComponent
                 name={menuNames}
                 id={menuId}
+                img={menuImg}
                 nav={nav}
                 navClickHandler={props.navClickHandler}
               />
@@ -439,7 +455,6 @@
 
         const navClickHandler = () => {
           setNav(!nav);
-          console.log(nav);
         };
 
         return (
@@ -466,3 +481,4 @@
     </script>
   </body>
 </html>
+
