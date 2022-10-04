@@ -126,9 +126,7 @@
         );
       };
       const NavComponent = (props) => {
-        const name = props.name;
-        const id = props.id;
-        const img = props.img;
+        const menuInfoObj = props.menuInfoObj;
 
         const navOnMouseOver = (e) => {
           const eventTarget = e.target;
@@ -162,7 +160,7 @@
 
         return (
           <nav id="menus">
-            <SingleNavComponent name={name} id={id} img={img} />
+            <SingleNavComponent {...menuInfoObj} />
           </nav>
         );
       };
@@ -191,9 +189,7 @@
         );
       };
       const VideoComponent = (props) => {
-        const img = props.img;
-        const content = props.content;
-        const id = props.id;
+        const videoInfoObj = props.videoInfoObj;
         const [videoScale, setVideoScale] = React.useState(true);
 
         const videoOnClickHandler = (e) => {
@@ -221,86 +217,72 @@
 
         return (
           <div id="videos">
-            <SingleVideoComponent id={id} img={img} content={content} />
+            <SingleVideoComponent {...videoInfoObj} />
           </div>
         );
       };
       const ContainerComponent = (props) => {
-        const menuNames = [
-          "홈",
-          "탐색",
-          "Shorts",
-          "구독",
-          "Originals",
-          "YouTube Music",
-          "보관함",
-          "오프라인 저장",
-        ];
-        const menuId = ["0", "1", "2", "3", "4", "5", "6", "7"];
-        const menuImg = [
-          "menu0",
-          "menu1",
-          "menu2",
-          "menu3",
-          "menu4",
-          "menu5",
-          "menu6",
-          "menu7",
-        ];
-
-        const videoId = [
-          "0",
-          "1",
-          "2",
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "8",
-          "9",
-          "10",
-          "11",
-        ];
-        const videoImg = [
-          "img0",
-          "img0",
-          "img0",
-          "img0",
-          "img0",
-          "img0",
-          "img0",
-          "img0",
-          "img0",
-          "img0",
-          "img0",
-          "img0",
-          "img0",
-        ];
-        const videoContent = [
-          "content0",
-          "content0",
-          "content0",
-          "content0",
-          "content0",
-          "content0",
-          "content0",
-          "content0",
-          "content0",
-          "content0",
-          "content0",
-          "content0",
-          "content0",
-        ];
+        const videoInfoObj = {
+          id: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"],
+          img: [
+            "img0",
+            "img0",
+            "img0",
+            "img0",
+            "img0",
+            "img0",
+            "img0",
+            "img0",
+            "img0",
+            "img0",
+            "img0",
+            "img0",
+            "img0",
+          ],
+          content: [
+            "content0",
+            "content0",
+            "content0",
+            "content0",
+            "content0",
+            "content0",
+            "content0",
+            "content0",
+            "content0",
+            "content0",
+            "content0",
+            "content0",
+            "content0",
+          ],
+        };
+        const menuInfoObj = {
+          name: [
+            "홈",
+            "탐색",
+            "Shorts",
+            "구독",
+            "Originals",
+            "YouTube Music",
+            "보관함",
+            "오프라인 저장",
+          ],
+          id: ["0", "1", "2", "3", "4", "5", "6", "7"],
+          img: [
+            "menu0",
+            "menu1",
+            "menu2",
+            "menu3",
+            "menu4",
+            "menu5",
+            "menu6",
+            "menu7",
+          ],
+        };
 
         return (
           <main id="container">
-            <NavComponent name={menuNames} id={menuId} img={menuImg} />
-            <VideoComponent
-              img={videoImg}
-              content={videoContent}
-              id={videoId}
-            />
+            <NavComponent menuInfoObj={menuInfoObj} />
+            <VideoComponent videoInfoObj={videoInfoObj} />
           </main>
         );
       };
@@ -346,9 +328,7 @@
         );
       };
       const WhiteBoxMenuComponent = (props) => {
-        const name = props.name;
-        const id = props.id;
-        const img = props.img;
+        const menuInfoObj = props.menuInfoObj;
 
         const whiteBoxOnMouseOver = (e) => {
           const eventTarget = e.target.parentNode;
@@ -379,14 +359,12 @@
 
         return (
           <div id="header-menus">
-            <WhiteBoxSingleMenuComponent name={name} id={id} img={img} />
+            <WhiteBoxSingleMenuComponent {...menuInfoObj} />
           </div>
         );
       };
       const WhiteBoxComponent = (props) => {
-        const name = props.name;
-        const id = props.id;
-        const img = props.img;
+        const menuInfoObj = props.menuInfoObj;
 
         const nav = props.nav;
 
@@ -399,7 +377,10 @@
         return (
           <div id="box-2">
             <WhiteBoxHeaderComponent />
-            <WhiteBoxMenuComponent id={id} name={name} img={img} />
+            <WhiteBoxMenuComponent
+              menuInfoObj={menuInfoObj}
+              // id={id} name={name} img={img}
+            />
           </div>
         );
       };
@@ -407,28 +388,29 @@
         return <div id="box-1"></div>;
       };
       const SideNavComponent = (props) => {
-        const menuNames = [
-          "홈",
-          "탐색",
-          "Shorts",
-          "구독",
-          "Originals",
-          "YouTube Music",
-          "보관함",
-          "오프라인 저장",
-        ];
-        const menuId = ["0", "1", "2", "3", "4", "5", "6", "7"];
-        const menuImg = [
-          "menu0",
-          "menu1",
-          "menu2",
-          "menu3",
-          "menu4",
-          "menu5",
-          "menu6",
-          "menu7",
-        ];
-
+        const menuInfoObj = {
+          name: [
+            "홈",
+            "탐색",
+            "Shorts",
+            "구독",
+            "Originals",
+            "YouTube Music",
+            "보관함",
+            "오프라인 저장",
+          ],
+          id: ["0", "1", "2", "3", "4", "5", "6", "7"],
+          img: [
+            "menu0",
+            "menu1",
+            "menu2",
+            "menu3",
+            "menu4",
+            "menu5",
+            "menu6",
+            "menu7",
+          ],
+        };
         const nav = props.nav;
 
         return (
@@ -436,9 +418,7 @@
             {nav == true ? <GrayBoxComponent /> : null}
             {nav == true ? (
               <WhiteBoxComponent
-                name={menuNames}
-                id={menuId}
-                img={menuImg}
+                menuInfoObj={menuInfoObj}
                 nav={nav}
                 navClickHandler={props.navClickHandler}
               />
