@@ -26,20 +26,7 @@
       const HeaderStartContainer = () => {
         return (
           <div id="header-start-container">
-            <div
-              id="menuBar"
-              onClick={() => {
-                // console.log("clicked");
-                // const menuBarList = document.getElementById("menu-bar-list");
-                // document.getElementById("header").style.backgroundColor =
-                //   "transparent";
-                // document.getElementById("box-1").style.animsationName =
-                //   "darker";
-                // document.getElementById("box-2").style.animationName =
-                //   "open-bar";
-                // menuBarList.style.display = "";
-              }}
-            >
+            <div id="menuBar">
               <button id="button-menuBar">
                 <img src={`./images/menu.jpg`} />
               </button>
@@ -105,7 +92,7 @@
           document
             .getElementById("menuBar")
             .addEventListener("click", props.navClickHandler);
-        });
+        }, []); //?????????????
 
         return (
           <header id="header">
@@ -127,7 +114,7 @@
               return (
                 <div key={index} id={`menu${id[index]}`}>
                   <div id="menu">
-                    <div className="menu-class" id="button-menu">
+                    <div id="button-menu">
                       <img src={`./images/${img[index]}.jpg`} />
                       {name[index]}
                     </div>
@@ -144,16 +131,22 @@
         const img = props.img;
 
         const navOnMouseOver = (e) => {
+          const eventTarget = e.target;
+
           console.log("over");
-          if (e.target.className == "menu-class") {
-            e.target.style.backgroundColor = "lightgray";
+
+          if (eventTarget.id || eventTarget.parentNode.id == "button-menu") {
+            eventTarget.parentNode.style.backgroundColor = "lightgray";
           }
         };
 
         const navOnMouseOut = (e) => {
+          const eventTarget = e.target;
+
           console.log("out");
-          if (e.target.className == "menu-class") {
-            e.target.style.backgroundColor = "transparent";
+
+          if (eventTarget.id || eventTarget.parentNode.id == "button-menu") {
+            eventTarget.parentNode.style.backgroundColor = "transparent";
           }
         };
 
@@ -182,7 +175,7 @@
           <>
             {id.map((a, index) => {
               return (
-                <div className="video-class" key={index} id={`video${index}`}>
+                <div key={index} id={`video${index}`}>
                   <div id="video">
                     <div id="thumbnail">
                       <img src={`./images/${img[index]}.jpg`} />
@@ -201,28 +194,21 @@
         const img = props.img;
         const content = props.content;
         const id = props.id;
-
         const [videoScale, setVideoScale] = React.useState(true);
-        // console.log("compoenent");
 
         const videoOnClickHandler = (e) => {
-          // console.log("video click");
+          const eventTarget = e.target.parentNode.parentNode;
           setVideoScale(!videoScale);
-          // console.log(e.target);
-          if (e.target.className == "video-class") {
-            // console.log(e.target);
+
+          if (eventTarget.id == "video") {
             if (videoScale === true) {
               console.log("true");
-              e.target.style.transform = "scale(1.1)";
-              e.target.style.top = "-10px";
-              e.target.style.transition = "0.5s";
-              e.target.style.zIndex = "1";
+              eventTarget.style.transform = "scale(1.1)";
+              eventTarget.style.top = "-10px";
             } else if (videoScale === false) {
               console.log("false");
-              e.target.style.transform = "scale(1)";
-              e.target.style.top = "0px";
-              e.target.style.transition = "0.2s";
-              e.target.style.zIndex = "0";
+              eventTarget.style.top = "0px";
+              eventTarget.style.transform = "scale(1)";
             }
           }
         };
@@ -336,6 +322,7 @@
       const WhiteBoxSingleMenuComponent = (props) => {
         const name = props.name;
         const id = props.id;
+        const img = props.img;
 
         return (
           <>
@@ -347,7 +334,10 @@
                   id={`header-menu${id[index]}`}
                 >
                   <div id="header-menu">
-                    <div id="button-header-menu">{name[index]}</div>
+                    <div id="button-header-menu">
+                      <img src={`./images/${img[index]}.jpg`} />
+                      {name[index]}
+                    </div>
                   </div>
                 </div>
               );
@@ -358,16 +348,22 @@
       const WhiteBoxMenuComponent = (props) => {
         const name = props.name;
         const id = props.id;
+        const img = props.img;
 
         const whiteBoxOnMouseOver = (e) => {
-          if (e.target.className == "header-menu-class") {
-            e.target.style.backgroundColor = "lightgray";
+          const eventTarget = e.target.parentNode;
+          if (eventTarget.id == "header-menu") {
+            console.log("side over");
+            eventTarget.style.backgroundColor = "lightgray";
           }
         };
 
         const whiteBoxOnMouseOut = (e) => {
-          if (e.target.className == "header-menu-class") {
-            e.target.style.backgroundColor = "transparent";
+          const eventTarget = e.target.parentNode;
+
+          if (eventTarget.id == "header-menu") {
+            console.log("side out");
+            eventTarget.style.backgroundColor = "transparent";
           }
         };
 
@@ -383,13 +379,14 @@
 
         return (
           <div id="header-menus">
-            <WhiteBoxSingleMenuComponent name={name} id={id} />
+            <WhiteBoxSingleMenuComponent name={name} id={id} img={img} />
           </div>
         );
       };
       const WhiteBoxComponent = (props) => {
         const name = props.name;
         const id = props.id;
+        const img = props.img;
 
         const nav = props.nav;
 
@@ -402,7 +399,7 @@
         return (
           <div id="box-2">
             <WhiteBoxHeaderComponent />
-            <WhiteBoxMenuComponent id={id} name={name} />
+            <WhiteBoxMenuComponent id={id} name={name} img={img} />
           </div>
         );
       };
@@ -454,6 +451,7 @@
         const [nav, setNav] = React.useState(false);
 
         const navClickHandler = () => {
+          console.log("click");
           setNav(!nav);
         };
 
@@ -481,4 +479,3 @@
     </script>
   </body>
 </html>
-
