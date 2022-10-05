@@ -23,7 +23,7 @@
     <div id="root"></div>
 
     <script type="text/babel">
-      const HeaderStartContainer = () => {
+      const HeaderStartContainerComponent = () => {
         return (
           <div id="header-start-container">
             <div id="menuBar">
@@ -37,7 +37,7 @@
           </div>
         );
       };
-      const HeaderMiddleContainer = () => {
+      const HeaderMiddleContainerComponent = () => {
         return (
           <div id="header-middle-container">
             <div id="search">
@@ -52,7 +52,7 @@
           </div>
         );
       };
-      const HeaderEndContainer = () => {
+      const HeaderEndContainerComponent = () => {
         return (
           <div id="header-end-container">
             <div id="makingVideo">
@@ -96,14 +96,14 @@
 
         return (
           <header id="header">
-            <HeaderStartContainer />
-            <HeaderMiddleContainer />
-            <HeaderEndContainer />
+            <HeaderStartContainerComponent />
+            <HeaderMiddleContainerComponent />
+            <HeaderEndContainerComponent />
           </header>
         );
       };
 
-      const SingleNavComponent = (props) => {
+      const NavItemComponent = (props) => {
         const name = props.name;
         const id = props.id;
         const img = props.img;
@@ -156,15 +156,15 @@
           document
             .getElementById("menus")
             .addEventListener("mouseout", navOnMouseOut);
-        });
+        }, []);
 
         return (
           <nav id="menus">
-            <SingleNavComponent {...menuInfoObj} />
+            <NavItemComponent {...menuInfoObj} />
           </nav>
         );
       };
-      const SingleVideoComponent = (props) => {
+      const VideoItemComponent = (props) => {
         const id = props.id;
         const img = props.img;
         const content = props.content;
@@ -195,14 +195,15 @@
         const videoOnClickHandler = (e) => {
           const eventTarget = e.target.parentNode.parentNode;
           setVideoScale(!videoScale);
+          console.log(videoScale);
 
           if (eventTarget.id == "video") {
             if (videoScale === true) {
-              console.log("true");
+              // console.log("true");
               eventTarget.style.transform = "scale(1.1)";
               eventTarget.style.top = "-10px";
             } else if (videoScale === false) {
-              console.log("false");
+              // console.log("false");
               eventTarget.style.top = "0px";
               eventTarget.style.transform = "scale(1)";
             }
@@ -213,11 +214,16 @@
           document
             .getElementById("videos")
             .addEventListener("click", videoOnClickHandler);
+          return () => {
+            document
+              .getElementById("videos")
+              .removeEventListener("click", videoOnClickHandler);
+          };
         });
 
         return (
           <div id="videos">
-            <SingleVideoComponent {...videoInfoObj} />
+            <VideoItemComponent {...videoInfoObj} />
           </div>
         );
       };
@@ -287,7 +293,7 @@
         );
       };
 
-      const WhiteBoxHeaderComponent = () => {
+      const WhiteBoxTitleComponent = () => {
         return (
           <div id="header-menu-start-container">
             <div id="header-menu-bar">
@@ -301,7 +307,7 @@
           </div>
         );
       };
-      const WhiteBoxSingleMenuComponent = (props) => {
+      const WhiteBoxMenuItemComponent = (props) => {
         const name = props.name;
         const id = props.id;
         const img = props.img;
@@ -355,11 +361,11 @@
           document
             .getElementById("header-menus")
             .addEventListener("mouseout", whiteBoxOnMouseOut);
-        });
+        }, []);
 
         return (
           <div id="header-menus">
-            <WhiteBoxSingleMenuComponent {...menuInfoObj} />
+            <WhiteBoxMenuItemComponent {...menuInfoObj} />
           </div>
         );
       };
@@ -372,11 +378,11 @@
           document
             .getElementById("header-menu-bar")
             .addEventListener("click", props.navClickHandler);
-        });
+        }, []);
 
         return (
           <div id="box-2">
-            <WhiteBoxHeaderComponent />
+            <WhiteBoxTitleComponent />
             <WhiteBoxMenuComponent
               menuInfoObj={menuInfoObj}
               // id={id} name={name} img={img}
