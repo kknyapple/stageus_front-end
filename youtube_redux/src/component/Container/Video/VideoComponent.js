@@ -36,34 +36,6 @@ export default function VideoComponent() {
     ],
   };
 
-  const [videoScale, setVideoScale] = React.useState(false);
-
-  const videoOnClickHandler = (e) => {
-    const eventTarget = e.target.parentNode.parentNode;
-    console.log(videoScale);
-    setVideoScale(!videoScale);
-    if (eventTarget.id == "video") {
-      if (videoScale === true) {
-        eventTarget.parentNode.style.transform = "scale(1.1)";
-        eventTarget.parentNode.style.top = "-10px";
-      } else if (videoScale === false) {
-        eventTarget.parentNode.style.top = "0px";
-        eventTarget.parentNode.style.transform = "scale(1)";
-      }
-    }
-  };
-
-  React.useEffect(() => {
-    document
-      .getElementById("videos")
-      .addEventListener("click", videoOnClickHandler);
-    // return () => {
-    //   document
-    //     .getElementById("videos")
-    //     .removeEventListener("click", videoOnClickHandler);
-    // };
-  }, []);
-
   return (
     <div id="videos">
       {videoInfoObj.id.map((a, index) => {
