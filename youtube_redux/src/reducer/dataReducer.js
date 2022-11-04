@@ -1,12 +1,14 @@
+import { videosData } from "../data/videoData";
+
 const initState = {
-  menu: "home",
+  data: videosData,
 };
 
 const reducer = (state = initState, action) => {
   switch (action.type) {
-    case "CHANGE_MENU":
+    case "SHOW_VIDEO":
       return {
-        menu: action.menu,
+        data: action.data,
       };
 
     default:

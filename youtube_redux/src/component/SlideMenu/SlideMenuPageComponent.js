@@ -8,8 +8,12 @@ export default function SlideMenuComponent() {
 
   return (
     <div id="menu-bar-list">
-      {button == true ? <div id="box-1"></div> : null}
-      {button == true ? <SlideMenuContainer menuInfoObj /> : null}
+      {button == true ? (
+        <React.Fragment>
+          <div id="box-1"></div>
+          <SlideMenuContainer />
+        </React.Fragment>
+      ) : null}
     </div>
   );
 }

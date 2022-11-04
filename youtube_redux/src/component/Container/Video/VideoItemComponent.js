@@ -1,22 +1,12 @@
 import React from "react";
 import { useState } from "react";
 
-const useVideo = () => {
-  const [videoScale, setVideoScale] = useState(true);
-
-  const videoCondition = (scale) => {
-    setVideoScale(!scale);
-  };
-
-  return [videoScale, videoCondition];
-};
+import useVideo from "./useVideo.js";
 
 export default function VideoItemComponent(props) {
-  const id = props.id;
-  const img = props.img;
-  const content = props.content;
-  // const [videoState, setVideoState] = useVideo();
-  const [videoState, setVideoState] = useState(true);
+  const { video } = props;
+  const [videoState, setVideoState] = useVideo();
+  //const [videoState, setVideoState] = useState(true);
 
   const videoOnClickHandler = (e) => {
     const eventTarget = e.currentTarget;
@@ -31,13 +21,13 @@ export default function VideoItemComponent(props) {
   };
 
   return (
-    <div id={`video${props.index}`} onClick={videoOnClickHandler}>
+    <div id={`video${video.id}`} onClick={videoOnClickHandler}>
       <div id="video">
         <div id="thumbnail">
-          <img src={`./images/${img[props.index]}.jpg`} />
+          <img src={`./images/${video.img}.jpg`} />
         </div>
         <div id="video-content">
-          <img src={`./images/${content[props.index]}.jpg`} />
+          <img src={`./images/${video.content}.jpg`} />
         </div>
       </div>
     </div>

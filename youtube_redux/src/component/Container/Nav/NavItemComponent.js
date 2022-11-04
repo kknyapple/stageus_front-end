@@ -1,14 +1,14 @@
 import React from "react";
 
 export default function NavItemComponent(props) {
-  const { name, id, img } = props;
+  const { menu } = props;
 
   return (
-    <div id={`menu${id[props.index]}`}>
+    <div id={`menu${menu.id}`}>
       <div id="menu">
         <div id="button-menu">
-          <img src={`./images/${img[props.index]}.jpg`} />
-          {name[props.index]}
+          <img src={`./images/${menu.img}.jpg`} />
+          {menu.name}
         </div>
       </div>
     </div>

@@ -8,7 +8,6 @@ import { openSlideMenu } from "../../action/action";
 
 export default function HeaderComponent() {
   const dispatch = useDispatch();
-  const headerImg = ["menu", "logo", "search", "voice", "video", "notice"];
 
   React.useEffect(() => {
     document.getElementById("menuBar").addEventListener("click", () => {

@@ -1,43 +1,52 @@
 import React from "react";
-import NavItemComponent from "./NavItemComponent";
-
 import { useDispatch } from "react-redux";
-import {
-  showMenu0,
-  showMenu1,
-  showMenu2,
-  showMenu3,
-  showMenu4,
-  showMenu5,
-  showMenu6,
-  showMenu7,
-} from "../../../action/action";
+
+import NavItemComponent from "./NavItemComponent";
+import { showMenu } from "../../../action/action";
 
 export default function NavComponent() {
-  const menuInfoObj = {
-    name: [
-      "홈",
-      "탐색",
-      "Shorts",
-      "구독",
-      "Originals",
-      "YouTube Music",
-      "보관함",
-      "오프라인 저장",
-    ],
-    id: ["0", "1", "2", "3", "4", "5", "6", "7"],
-    img: [
-      "menu0",
-      "menu1",
-      "menu2",
-      "menu3",
-      "menu4",
-      "menu5",
-      "menu6",
-      "menu7",
-    ],
-  };
-
+  const menusData = [
+    {
+      id: "0",
+      img: "menu0",
+      name: "home",
+    },
+    {
+      id: "1",
+      img: "menu1",
+      name: "search",
+    },
+    {
+      id: "2",
+      img: "menu2",
+      name: "shorts",
+    },
+    {
+      id: "3",
+      img: "menu3",
+      name: "describe",
+    },
+    {
+      id: "4",
+      img: "menu4",
+      name: "originals",
+    },
+    {
+      id: "5",
+      img: "menu5",
+      name: "music",
+    },
+    {
+      id: "6",
+      img: "menu6",
+      name: "storage",
+    },
+    {
+      id: "7",
+      img: "menu7",
+      name: "offline",
+    },
+  ];
   const dispatch = useDispatch();
 
   const navOnMouseOver = (e) => {
@@ -65,43 +74,17 @@ export default function NavComponent() {
       .getElementById("menus")
       .addEventListener("mouseout", navOnMouseOut);
 
-    document.getElementById("menu0").addEventListener("click", () => {
-      dispatch(showMenu0());
-    });
-
-    document.getElementById("menu1").addEventListener("click", () => {
-      dispatch(showMenu1());
-    });
-
-    document.getElementById("menu2").addEventListener("click", () => {
-      dispatch(showMenu2());
-    });
-
-    document.getElementById("menu3").addEventListener("click", () => {
-      dispatch(showMenu3());
-    });
-
-    document.getElementById("menu4").addEventListener("click", () => {
-      dispatch(showMenu4());
-    });
-
-    document.getElementById("menu5").addEventListener("click", () => {
-      dispatch(showMenu5());
-    });
-
-    document.getElementById("menu6").addEventListener("click", () => {
-      dispatch(showMenu6());
-    });
-
-    document.getElementById("menu7").addEventListener("click", () => {
-      dispatch(showMenu7());
+    menusData.forEach((menu, index) => {
+      document.getElementById(`menu${index}`).addEventListener("click", () => {
+        dispatch(showMenu(menu.name));
+      });
     });
   }, []);
 
   return (
     <nav id="menus">
-      {menuInfoObj.id.map((a, index) => {
-        return <NavItemComponent key={index} {...menuInfoObj} index={index} />;
+      {menusData.map((menu) => {
+        return <NavItemComponent key={menu.id} menu={menu} />;
       })}
     </nav>
   );

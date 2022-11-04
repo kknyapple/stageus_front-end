@@ -29,7 +29,6 @@ export default function SlideMenuNavContainerComponent() {
   const whiteBoxOnMouseOver = (e) => {
     const eventTarget = e.target.parentNode;
     if (eventTarget.id == "header-menu") {
-      console.log("side over");
       eventTarget.style.backgroundColor = "lightgray";
     }
   };
@@ -38,7 +37,6 @@ export default function SlideMenuNavContainerComponent() {
     const eventTarget = e.target.parentNode;
 
     if (eventTarget.id == "header-menu") {
-      console.log("side out");
       eventTarget.style.backgroundColor = "transparent";
     }
   };

@@ -5,19 +5,19 @@ import VideoComponent from "./Video/VideoComponent";
 import { useSelector } from "react-redux";
 
 export default function ContainerComponent() {
-  const page = useSelector((state) => state.navReducer.page);
+  const menu = useSelector((state) => state.navReducer.menu);
 
   return (
     <main id="container">
       <NavComponent />
-      {(page == 0 && <VideoComponent />) ||
-        (page == 1 && <div>Component1</div>) ||
-        (page == 2 && <div>Component2</div>) ||
-        (page == 3 && <div>Component3</div>) ||
-        (page == 4 && <div>Component4</div>) ||
-        (page == 5 && <div>Component5</div>) ||
-        (page == 6 && <div>Component6</div>) ||
-        (page == 7 && <div>Component7</div>)}
+      {(menu == "home" && <VideoComponent />) ||
+        (menu == "search" && <div>Component1</div>) ||
+        (menu == "shorts" && <div>Component2</div>) ||
+        (menu == "describe" && <div>Component3</div>) ||
+        (menu == "originals" && <div>Component4</div>) ||
+        (menu == "music" && <div>Component5</div>) ||
+        (menu == "storage" && <div>Component6</div>) ||
+        (menu == "offline" && <div>Component7</div>)}
     </main>
   );
 }
