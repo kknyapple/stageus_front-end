@@ -1,0 +1,17 @@
+@keyframes open-bar {
+  0% {
+    left: -220px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes darker {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: rgba(31, 31, 31, 0.545);
+  }
+}
